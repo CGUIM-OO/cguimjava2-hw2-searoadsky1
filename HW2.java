@@ -3,31 +3,43 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author TODO: B0444223 §d©ûèû
  * Try to write some comments for your codes (methods, 15 points)
  */
-public class HW2 {
+/*«Ü±M·~¡B«Ü¦³·Qªkªºµ{¦¡½X¡Cªá¤F¤£¤Ö®É¶¡¡A¦ý¦³¾Ç¨ì¨ä¤¤ªººëÀH*/
+/*suitªá¦â rank¼Æ¦r */
+public class HW2 {//Åý¨Ï¥ÎªÌ¿é¤J´X°ÆµP¡A¦L¥Xªá¦â¡BÂI¼Æ¡C
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("input N (deck of cards):");
 		String testn= sc.nextLine(); 
         
-		int nDeck=Integer.parseInt(testn);
-		Deck deck=new Deck(nDeck);
+		int nDeck=Integer.parseInt(testn);//¦r¦ê´«¦¨int
+		
+		Deck deck=new Deck(nDeck);//§âdeckÃþ§O¥s¥X¨Ó¡C
+		
 		//TODO: please check your output, make sure that you print all cards on your screen (10 points)
+		
+		
+		for(int i=0;i<nDeck;i++) {
+			
 		deck.printDeck();
+		
+		}
+		
 		
 		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
 			System.out.println("Well done!");
 		}else{
 			System.out.println("Error, please check your sourse code");
 		}
+		
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards æ‰€æœ‰çš„ç‰Œ
-	 * @param nDeck ç¸½å…±æœ‰å¹¾å‰¯ç‰Œ
+	 * @param allCards ©Ò¦³ªºµP
+	 * @param nDeck Á`¦@¦³´X°ÆµP
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -64,12 +76,15 @@ public class HW2 {
 
 }
 /**
- * Description: TODO: please add description here
+ * Description: TODO: please add description here public Deck(){}¬O«Øºc¤l¡C¦U¦æµù¸Ñ¼g¦b¤U­±
  */
 class Deck{
-	private ArrayList<Card> cards;
+	private ArrayList<Card> cards; //«Åµq°}¦C
 	//TODO: Please implement the constructor (30 points)
-	public Deck(int nDeck){
+	public Deck(){}//«Øºc¤l
+	
+	public Deck(int nDeck)
+	{
 		cards=new ArrayList<Card>();
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
@@ -77,21 +92,46 @@ class Deck{
 		//Card card=new Card(1,1); ->means new card as clubs ace
 		//cards.add(card);
 		//Sample code end
+		
+		
+		for(int i=0;i<nDeck;i++)// ´X°ÆµP¡B¥|­Óªá¦â¡B¨C°ÆµP1-13
+		{
+			for(int x=1;x<5;x++) {
+				for(int y=1;y<14;y++) {
+					Card a=new Card(x,y);
+					cards.add(a);
+				
+				}
+			}
+		}
+		
+		
 
 	}	
+	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
-
+	for(int i=0;i<52;i++)//¤@°ÆµP52±i 
+	{
+		Card n=cards.get(i);
+		//System.out.println(n.getSuit()+","+n.getRank());
+		n.printCard();
+	}
+		
+		
+		
+		
 	}
 	public ArrayList<Card> getAllCards(){
 		return cards;
 	}
 }
 /**
- * Description: TODO: please add description here
+ * Description: TODO: please add description here ¡C¦U¦æµ{¦¡½X·N«äª½±µ¼g¦b¤U­±¡C
  */
+/*«Ø¥ßclassÃþ§O¡Asuit©Mrank¬Oinstance field¡C    */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
 	private int rank; //1~13
@@ -99,19 +139,26 @@ class Card{
 	 * @param s suit
 	 * @param r rank
 	 */
-	public Card(int s,int r){
+	public Card(int s,int r){//«Øºc¤l
 		suit=s;
 		rank=r;
 	}	
-	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
-	public void printCard(){
-		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+	public Card() {//¨t²Î¦Û°Ê²£¥Íªº«Øºc¤l
+		// TODO Auto-generated constructor stub 
+		
 	}
-	public int getSuit(){
+	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
+	public void printCard(){//¦L¥Xªá¦â¡A¼Æ¦r
+		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
+		System.out.println(getSuit()+","+getRank());
+		
+			
+		
+	}
+	public int getSuit(){ //¨ú±oªá¦â
 		return suit;
 	}
-	public int getRank(){
+	public int getRank(){//¨ú±oÂI¼Æ
 		return rank;
 	}
 }
