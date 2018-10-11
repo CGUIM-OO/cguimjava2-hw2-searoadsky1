@@ -78,12 +78,12 @@ public class HW2 {//讓使用者輸入幾副牌，印出花色、點數。
 /**
  * Description: TODO: please add description here public Deck(){}是建構子。各行註解寫在下面
  */
-class Deck{
+class Deck{//一個類別
 	private ArrayList<Card> cards; //宣皓陣列
 	//TODO: Please implement the constructor (30 points)
 	public Deck(){}//建構子
 	
-	public Deck(int nDeck)
+	public Deck(int nDeck)//有參數的建構子
 	{
 		cards=new ArrayList<Card>();
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
@@ -94,10 +94,13 @@ class Deck{
 		//Sample code end
 		
 		
-		for(int i=0;i<nDeck;i++)// 幾副牌、四個花色、每副牌1-13
+		for(int i=0;i<nDeck;i++)// 幾副牌、四個花色、每副牌1-13 把牌跟花色存到陣列
 		{
-			for(int x=1;x<5;x++) {
-				for(int y=1;y<14;y++) {
+			for(int x=1;x<5;x++) 
+			{
+				
+				for(int y=1;y<14;y++) 
+				{
 					Card a=new Card(x,y);
 					cards.add(a);
 				
@@ -110,7 +113,7 @@ class Deck{
 	}	
 	
 	//TODO: Please implement the method to print all cards on screen (10 points)
-	public void printDeck(){
+	public void printDeck(){//印出牌堆
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
 	for(int i=0;i<52;i++)//一副牌52張 
@@ -124,7 +127,7 @@ class Deck{
 		
 		
 	}
-	public ArrayList<Card> getAllCards(){
+	public ArrayList<Card> getAllCards(){//取得所有的卡
 		return cards;
 	}
 }
